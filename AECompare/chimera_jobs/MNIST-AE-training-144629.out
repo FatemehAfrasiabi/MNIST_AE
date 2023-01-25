@@ -1,0 +1,1070 @@
+Thu 19 Jan 2023 05:41:21 PM EST
+MNIST-AE-training
+Running for latent length 10
+Model info:
+digit:0, device:cuda, latent length:10, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5923
+    Root location: dataset
+    Split: Train
+0 0.022222988 5923
+0 0.022481782 980
+Model info:
+digit:1, device:cuda, latent length:10, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6742
+    Root location: dataset
+    Split: Train
+1 0.0061528143 6742
+1 0.005743203 1135
+Model info:
+digit:2, device:cuda, latent length:10, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5958
+    Root location: dataset
+    Split: Train
+2 0.030872853 5958
+2 0.030991979 1032
+Model info:
+digit:3, device:cuda, latent length:10, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6131
+    Root location: dataset
+    Split: Train
+3 0.024182606 6131
+3 0.024581274 1010
+Model info:
+digit:4, device:cuda, latent length:10, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5842
+    Root location: dataset
+    Split: Train
+4 0.021347802 5842
+4 0.021128714 982
+Model info:
+digit:5, device:cuda, latent length:10, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5421
+    Root location: dataset
+    Split: Train
+5 0.030223904 5421
+5 0.030975671 892
+Model info:
+digit:6, device:cuda, latent length:10, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5918
+    Root location: dataset
+    Split: Train
+6 0.025735343 5918
+6 0.026777478 958
+Model info:
+digit:7, device:cuda, latent length:10, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6265
+    Root location: dataset
+    Split: Train
+7 0.017497085 6265
+7 0.01753504 1028
+Model info:
+digit:8, device:cuda, latent length:10, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5851
+    Root location: dataset
+    Split: Train
+8 0.029601889 5851
+8 0.031067431 974
+Model info:
+digit:9, device:cuda, latent length:10, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5949
+    Root location: dataset
+    Split: Train
+9 0.019255854 5949
+9 0.019231768 1009
+Accuracy sore: 0.78
+Running for latent length 15
+Model info:
+digit:0, device:cuda, latent length:15, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5923
+    Root location: dataset
+    Split: Train
+0 0.01817717 5923
+0 0.018440425 980
+Model info:
+digit:1, device:cuda, latent length:15, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6742
+    Root location: dataset
+    Split: Train
+1 0.0063804737 6742
+1 0.005953419 1135
+Model info:
+digit:2, device:cuda, latent length:15, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5958
+    Root location: dataset
+    Split: Train
+2 0.031512093 5958
+2 0.031353615 1032
+Model info:
+digit:3, device:cuda, latent length:15, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6131
+    Root location: dataset
+    Split: Train
+3 0.027542626 6131
+3 0.028195804 1010
+Model info:
+digit:4, device:cuda, latent length:15, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5842
+    Root location: dataset
+    Split: Train
+4 0.02153247 5842
+4 0.021347065 982
+Model info:
+digit:5, device:cuda, latent length:15, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5421
+    Root location: dataset
+    Split: Train
+5 0.026459742 5421
+5 0.026661394 892
+Model info:
+digit:6, device:cuda, latent length:15, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5918
+    Root location: dataset
+    Split: Train
+6 0.02637195 5918
+6 0.027290309 958
+Model info:
+digit:7, device:cuda, latent length:15, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6265
+    Root location: dataset
+    Split: Train
+7 0.01677303 6265
+7 0.016956322 1028
+Model info:
+digit:8, device:cuda, latent length:15, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5851
+    Root location: dataset
+    Split: Train
+8 0.029767351 5851
+8 0.031346817 974
+Model info:
+digit:9, device:cuda, latent length:15, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5949
+    Root location: dataset
+    Split: Train
+9 0.01914177 5949
+9 0.019146381 1009
+Accuracy sore: 0.8596
+Running for latent length 20
+Model info:
+digit:0, device:cuda, latent length:20, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5923
+    Root location: dataset
+    Split: Train
+0 0.023560075 5923
+0 0.02346403 980
+Model info:
+digit:1, device:cuda, latent length:20, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6742
+    Root location: dataset
+    Split: Train
+1 0.0062816734 6742
+1 0.0058754394 1135
+Model info:
+digit:2, device:cuda, latent length:20, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5958
+    Root location: dataset
+    Split: Train
+2 0.03111138 5958
+2 0.030972378 1032
+Model info:
+digit:3, device:cuda, latent length:20, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6131
+    Root location: dataset
+    Split: Train
+3 0.028119788 6131
+3 0.028714323 1010
+Model info:
+digit:4, device:cuda, latent length:20, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5842
+    Root location: dataset
+    Split: Train
+4 0.018180333 5842
+4 0.017576335 982
+Model info:
+digit:5, device:cuda, latent length:20, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5421
+    Root location: dataset
+    Split: Train
+5 0.060869157 5421
+5 0.060853515 892
+Model info:
+digit:6, device:cuda, latent length:20, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5918
+    Root location: dataset
+    Split: Train
+6 0.025534421 5918
+6 0.026471699 958
+Model info:
+digit:7, device:cuda, latent length:20, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6265
+    Root location: dataset
+    Split: Train
+7 0.017367387 6265
+7 0.017539805 1028
+Model info:
+digit:8, device:cuda, latent length:20, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5851
+    Root location: dataset
+    Split: Train
+8 0.030242544 5851
+8 0.031586785 974
+Model info:
+digit:9, device:cuda, latent length:20, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5949
+    Root location: dataset
+    Split: Train
+9 0.018882124 5949
+9 0.018899579 1009
+Accuracy sore: 0.9509
+Running for latent length 21
+Model info:
+digit:0, device:cuda, latent length:21, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5923
+    Root location: dataset
+    Split: Train
+0 0.022394523 5923
+0 0.02253377 980
+Model info:
+digit:1, device:cuda, latent length:21, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6742
+    Root location: dataset
+    Split: Train
+1 0.006190207 6742
+1 0.0057878774 1135
+Model info:
+digit:2, device:cuda, latent length:21, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5958
+    Root location: dataset
+    Split: Train
+2 0.02730413 5958
+2 0.02720588 1032
+Model info:
+digit:3, device:cuda, latent length:21, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6131
+    Root location: dataset
+    Split: Train
+3 0.024506101 6131
+3 0.024990093 1010
+Model info:
+digit:4, device:cuda, latent length:21, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5842
+    Root location: dataset
+    Split: Train
+4 0.021600373 5842
+4 0.021355666 982
+Model info:
+digit:5, device:cuda, latent length:21, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5421
+    Root location: dataset
+    Split: Train
+5 0.026680272 5421
+5 0.027326595 892
+Model info:
+digit:6, device:cuda, latent length:21, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5918
+    Root location: dataset
+    Split: Train
+6 0.02478822 5918
+6 0.025769211 958
+Model info:
+digit:7, device:cuda, latent length:21, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6265
+    Root location: dataset
+    Split: Train
+7 0.016732747 6265
+7 0.017009446 1028
+Model info:
+digit:8, device:cuda, latent length:21, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5851
+    Root location: dataset
+    Split: Train
+8 0.029703122 5851
+8 0.030973725 974
+Model info:
+digit:9, device:cuda, latent length:21, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5949
+    Root location: dataset
+    Split: Train
+9 0.019156428 5949
+9 0.019022254 1009
+Accuracy sore: 0.9468
+Running for latent length 22
+Model info:
+digit:0, device:cuda, latent length:22, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5923
+    Root location: dataset
+    Split: Train
+0 0.023139682 5923
+0 0.023255685 980
+Model info:
+digit:1, device:cuda, latent length:22, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6742
+    Root location: dataset
+    Split: Train
+1 0.0062932437 6742
+1 0.005889753 1135
+Model info:
+digit:2, device:cuda, latent length:22, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5958
+    Root location: dataset
+    Split: Train
+2 0.064856514 5958
+2 0.06410713 1032
+Model info:
+digit:3, device:cuda, latent length:22, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6131
+    Root location: dataset
+    Split: Train
+3 0.027982825 6131
+3 0.02849316 1010
+Model info:
+digit:4, device:cuda, latent length:22, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5842
+    Root location: dataset
+    Split: Train
+4 0.025866678 5842
+4 0.025748039 982
+Model info:
+digit:5, device:cuda, latent length:22, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5421
+    Root location: dataset
+    Split: Train
+5 0.060813814 5421
+5 0.060756642 892
+Model info:
+digit:6, device:cuda, latent length:22, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5918
+    Root location: dataset
+    Split: Train
+6 0.024483964 5918
+6 0.025751097 958
+Model info:
+digit:7, device:cuda, latent length:22, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6265
+    Root location: dataset
+    Split: Train
+7 0.018829925 6265
+7 0.01877934 1028
+Model info:
+digit:8, device:cuda, latent length:22, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5851
+    Root location: dataset
+    Split: Train
+8 0.033909675 5851
+8 0.035363097 974
+Model info:
+digit:9, device:cuda, latent length:22, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5949
+    Root location: dataset
+    Split: Train
+9 0.022750072 5949
+9 0.022664055 1009
+Accuracy sore: 0.8844
+Running for latent length 23
+Model info:
+digit:0, device:cuda, latent length:23, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5923
+    Root location: dataset
+    Split: Train
+0 0.02674832 5923
+0 0.027541328 980
+Model info:
+digit:1, device:cuda, latent length:23, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6742
+    Root location: dataset
+    Split: Train
+1 0.006226429 6742
+1 0.0058460287 1135
+Model info:
+digit:2, device:cuda, latent length:23, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5958
+    Root location: dataset
+    Split: Train
+2 0.031447485 5958
+2 0.031224709 1032
+Model info:
+digit:3, device:cuda, latent length:23, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6131
+    Root location: dataset
+    Split: Train
+3 0.027755296 6131
+3 0.028244607 1010
+Model info:
+digit:4, device:cuda, latent length:23, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5842
+    Root location: dataset
+    Split: Train
+4 0.025614435 5842
+4 0.025703568 982
+Model info:
+digit:5, device:cuda, latent length:23, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5421
+    Root location: dataset
+    Split: Train
+5 0.060783077 5421
+5 0.060699634 892
+Model info:
+digit:6, device:cuda, latent length:23, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5918
+    Root location: dataset
+    Split: Train
+6 0.022394938 5918
+6 0.023490336 958
+Model info:
+digit:7, device:cuda, latent length:23, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6265
+    Root location: dataset
+    Split: Train
+7 0.020351235 6265
+7 0.020416085 1028
+Model info:
+digit:8, device:cuda, latent length:23, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5851
+    Root location: dataset
+    Split: Train
+8 0.02987652 5851
+8 0.031405777 974
+Model info:
+digit:9, device:cuda, latent length:23, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5949
+    Root location: dataset
+    Split: Train
+9 0.02275042 5949
+9 0.022735804 1009
+Accuracy sore: 0.9555
+Running for latent length 24
+Model info:
+digit:0, device:cuda, latent length:24, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5923
+    Root location: dataset
+    Split: Train
+0 0.022378737 5923
+0 0.02243613 980
+Model info:
+digit:1, device:cuda, latent length:24, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6742
+    Root location: dataset
+    Split: Train
+1 0.0063275783 6742
+1 0.0058851507 1135
+Model info:
+digit:2, device:cuda, latent length:24, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5958
+    Root location: dataset
+    Split: Train
+2 0.06487725 5958
+2 0.064133644 1032
+Model info:
+digit:3, device:cuda, latent length:24, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6131
+    Root location: dataset
+    Split: Train
+3 0.028116861 6131
+3 0.028492419 1010
+Model info:
+digit:4, device:cuda, latent length:24, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5842
+    Root location: dataset
+    Split: Train
+4 0.02218419 5842
+4 0.021898037 982
+Model info:
+digit:5, device:cuda, latent length:24, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5421
+    Root location: dataset
+    Split: Train
+5 0.060766663 5421
+5 0.060680006 892
+Model info:
+digit:6, device:cuda, latent length:24, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5918
+    Root location: dataset
+    Split: Train
+6 0.026318533 5918
+6 0.027353171 958
+Model info:
+digit:7, device:cuda, latent length:24, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6265
+    Root location: dataset
+    Split: Train
+7 0.016807348 6265
+7 0.017046314 1028
+Model info:
+digit:8, device:cuda, latent length:24, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5851
+    Root location: dataset
+    Split: Train
+8 0.029926179 5851
+8 0.031441785 974
+Model info:
+digit:9, device:cuda, latent length:24, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5949
+    Root location: dataset
+    Split: Train
+9 0.019429397 5949
+9 0.01944297 1009
+Accuracy sore: 0.8536
+Running for latent length 25
+Model info:
+digit:0, device:cuda, latent length:25, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5923
+    Root location: dataset
+    Split: Train
+0 0.022609778 5923
+0 0.02268799 980
+Model info:
+digit:1, device:cuda, latent length:25, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6742
+    Root location: dataset
+    Split: Train
+1 0.0064483355 6742
+1 0.006033071 1135
+Model info:
+digit:2, device:cuda, latent length:25, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5958
+    Root location: dataset
+    Split: Train
+2 0.030763011 5958
+2 0.030505728 1032
+Model info:
+digit:3, device:cuda, latent length:25, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6131
+    Root location: dataset
+    Split: Train
+3 0.028966816 6131
+3 0.029039301 1010
+Model info:
+digit:4, device:cuda, latent length:25, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5842
+    Root location: dataset
+    Split: Train
+4 0.021828385 5842
+4 0.021582799 982
+Model info:
+digit:5, device:cuda, latent length:25, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5421
+    Root location: dataset
+    Split: Train
+5 0.060852602 5421
+5 0.060679603 892
+Model info:
+digit:6, device:cuda, latent length:25, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5918
+    Root location: dataset
+    Split: Train
+6 0.025667176 5918
+6 0.026553318 958
+Model info:
+digit:7, device:cuda, latent length:25, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6265
+    Root location: dataset
+    Split: Train
+7 0.021010665 6265
+7 0.021268254 1028
+Model info:
+digit:8, device:cuda, latent length:25, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5851
+    Root location: dataset
+    Split: Train
+8 0.029575586 5851
+8 0.031112192 974
+Model info:
+digit:9, device:cuda, latent length:25, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5949
+    Root location: dataset
+    Split: Train
+9 0.022671549 5949
+9 0.022718089 1009
+Accuracy sore: 0.9844
+Running for latent length 26
+Model info:
+digit:0, device:cuda, latent length:26, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5923
+    Root location: dataset
+    Split: Train
+0 0.022775622 5923
+0 0.02270885 980
+Model info:
+digit:1, device:cuda, latent length:26, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6742
+    Root location: dataset
+    Split: Train
+1 0.0063951854 6742
+1 0.0059681963 1135
+Model info:
+digit:2, device:cuda, latent length:26, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5958
+    Root location: dataset
+    Split: Train
+2 0.06482131 5958
+2 0.064049356 1032
+Model info:
+digit:3, device:cuda, latent length:26, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6131
+    Root location: dataset
+    Split: Train
+3 0.028090825 6131
+3 0.028356038 1010
+Model info:
+digit:4, device:cuda, latent length:26, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5842
+    Root location: dataset
+    Split: Train
+4 0.027633844 5842
+4 0.027429273 982
+Model info:
+digit:5, device:cuda, latent length:26, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5421
+    Root location: dataset
+    Split: Train
+5 0.060854483 5421
+5 0.06073622 892
+Model info:
+digit:6, device:cuda, latent length:26, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5918
+    Root location: dataset
+    Split: Train
+6 0.026019746 5918
+6 0.027147332 958
+Model info:
+digit:7, device:cuda, latent length:26, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6265
+    Root location: dataset
+    Split: Train
+7 0.02144855 6265
+7 0.021218266 1028
+Model info:
+digit:8, device:cuda, latent length:26, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5851
+    Root location: dataset
+    Split: Train
+8 0.034061264 5851
+8 0.035549056 974
+Model info:
+digit:9, device:cuda, latent length:26, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5949
+    Root location: dataset
+    Split: Train
+9 0.023349179 5949
+9 0.023328703 1009
+Accuracy sore: 0.8761
+Running for latent length 27
+Model info:
+digit:0, device:cuda, latent length:27, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5923
+    Root location: dataset
+    Split: Train
+0 0.022376424 5923
+0 0.022572204 980
+Model info:
+digit:1, device:cuda, latent length:27, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6742
+    Root location: dataset
+    Split: Train
+1 0.0065025846 6742
+1 0.0061314967 1135
+Model info:
+digit:2, device:cuda, latent length:27, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5958
+    Root location: dataset
+    Split: Train
+2 0.027778275 5958
+2 0.027477955 1032
+Model info:
+digit:3, device:cuda, latent length:27, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6131
+    Root location: dataset
+    Split: Train
+3 0.027498849 6131
+3 0.028204879 1010
+Model info:
+digit:4, device:cuda, latent length:27, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5842
+    Root location: dataset
+    Split: Train
+4 0.021468462 5842
+4 0.021442363 982
+Model info:
+digit:5, device:cuda, latent length:27, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5421
+    Root location: dataset
+    Split: Train
+5 0.026549961 5421
+5 0.02693003 892
+Model info:
+digit:6, device:cuda, latent length:27, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5918
+    Root location: dataset
+    Split: Train
+6 0.022619968 5918
+6 0.023594521 958
+Model info:
+digit:7, device:cuda, latent length:27, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6265
+    Root location: dataset
+    Split: Train
+7 0.017898466 6265
+7 0.017876348 1028
+Model info:
+digit:8, device:cuda, latent length:27, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5851
+    Root location: dataset
+    Split: Train
+8 0.029868511 5851
+8 0.031459812 974
+Model info:
+digit:9, device:cuda, latent length:27, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5949
+    Root location: dataset
+    Split: Train
+9 0.019142028 5949
+9 0.019143267 1009
+Accuracy sore: 0.984
+Running for latent length 28
+Model info:
+digit:0, device:cuda, latent length:28, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5923
+    Root location: dataset
+    Split: Train
+0 0.018352296 5923
+0 0.018469421 980
+Model info:
+digit:1, device:cuda, latent length:28, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6742
+    Root location: dataset
+    Split: Train
+1 0.0062975492 6742
+1 0.0059295753 1135
+Model info:
+digit:2, device:cuda, latent length:28, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5958
+    Root location: dataset
+    Split: Train
+2 0.030345611 5958
+2 0.030221136 1032
+Model info:
+digit:3, device:cuda, latent length:28, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6131
+    Root location: dataset
+    Split: Train
+3 0.028047804 6131
+3 0.02867642 1010
+Model info:
+digit:4, device:cuda, latent length:28, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5842
+    Root location: dataset
+    Split: Train
+4 0.021250186 5842
+4 0.020907898 982
+Model info:
+digit:5, device:cuda, latent length:28, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5421
+    Root location: dataset
+    Split: Train
+5 0.030819867 5421
+5 0.031211926 892
+Model info:
+digit:6, device:cuda, latent length:28, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5918
+    Root location: dataset
+    Split: Train
+6 0.024188528 5918
+6 0.02521632 958
+Model info:
+digit:7, device:cuda, latent length:28, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6265
+    Root location: dataset
+    Split: Train
+7 0.016884975 6265
+7 0.017098513 1028
+Model info:
+digit:8, device:cuda, latent length:28, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5851
+    Root location: dataset
+    Split: Train
+8 0.02964164 5851
+8 0.031209476 974
+Model info:
+digit:9, device:cuda, latent length:28, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5949
+    Root location: dataset
+    Split: Train
+9 0.019664204 5949
+9 0.019724783 1009
+Accuracy sore: 0.9831
+Running for latent length 29
+Model info:
+digit:0, device:cuda, latent length:29, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5923
+    Root location: dataset
+    Split: Train
+0 0.022402309 5923
+0 0.0222351 980
+Model info:
+digit:1, device:cuda, latent length:29, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6742
+    Root location: dataset
+    Split: Train
+1 0.0063723186 6742
+1 0.0059627946 1135
+Model info:
+digit:2, device:cuda, latent length:29, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5958
+    Root location: dataset
+    Split: Train
+2 0.03082246 5958
+2 0.030832266 1032
+Model info:
+digit:3, device:cuda, latent length:29, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6131
+    Root location: dataset
+    Split: Train
+3 0.026983418 6131
+3 0.027688678 1010
+Model info:
+digit:4, device:cuda, latent length:29, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5842
+    Root location: dataset
+    Split: Train
+4 0.022145621 5842
+4 0.02182769 982
+Model info:
+digit:5, device:cuda, latent length:29, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5421
+    Root location: dataset
+    Split: Train
+5 0.026633916 5421
+5 0.027149534 892
+Model info:
+digit:6, device:cuda, latent length:29, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5918
+    Root location: dataset
+    Split: Train
+6 0.026025023 5918
+6 0.02699174 958
+Model info:
+digit:7, device:cuda, latent length:29, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6265
+    Root location: dataset
+    Split: Train
+7 0.020689107 6265
+7 0.020850938 1028
+Model info:
+digit:8, device:cuda, latent length:29, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5851
+    Root location: dataset
+    Split: Train
+8 0.02989051 5851
+8 0.031465434 974
+Model info:
+digit:9, device:cuda, latent length:29, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5949
+    Root location: dataset
+    Split: Train
+9 0.018899353 5949
+9 0.019077016 1009
+Accuracy sore: 0.9808
+Running for latent length 30
+Model info:
+digit:0, device:cuda, latent length:30, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5923
+    Root location: dataset
+    Split: Train
+0 0.018829163 5923
+0 0.018942634 980
+Model info:
+digit:1, device:cuda, latent length:30, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6742
+    Root location: dataset
+    Split: Train
+1 0.006396121 6742
+1 0.005993995 1135
+Model info:
+digit:2, device:cuda, latent length:30, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5958
+    Root location: dataset
+    Split: Train
+2 0.030910516 5958
+2 0.03069337 1032
+Model info:
+digit:3, device:cuda, latent length:30, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6131
+    Root location: dataset
+    Split: Train
+3 0.023760347 6131
+3 0.024181694 1010
+Model info:
+digit:4, device:cuda, latent length:30, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5842
+    Root location: dataset
+    Split: Train
+4 0.02197899 5842
+4 0.021637486 982
+Model info:
+digit:5, device:cuda, latent length:30, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5421
+    Root location: dataset
+    Split: Train
+5 0.026635353 5421
+5 0.02714655 892
+Model info:
+digit:6, device:cuda, latent length:30, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5918
+    Root location: dataset
+    Split: Train
+6 0.022182634 5918
+6 0.02330974 958
+Model info:
+digit:7, device:cuda, latent length:30, random_seed:42
+Dataset MNIST
+    Number of datapoints: 6265
+    Root location: dataset
+    Split: Train
+7 0.016816389 6265
+7 0.016981406 1028
+Model info:
+digit:8, device:cuda, latent length:30, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5851
+    Root location: dataset
+    Split: Train
+8 0.029866496 5851
+8 0.03139692 974
+Model info:
+digit:9, device:cuda, latent length:30, random_seed:42
+Dataset MNIST
+    Number of datapoints: 5949
+    Root location: dataset
+    Split: Train
+9 0.018900651 5949
+9 0.018886542 1009
+Accuracy sore: 0.9974
+Finish Run
+end time is Thu 19 Jan 2023 07:10:23 PM EST
