@@ -12,9 +12,9 @@ from sklearn.manifold import TSNE
 #import plotly.express as px
 
 import util as u
-import AutoEncoder.autoencoder as ae
-import AutoEncoder.variational_autoencoder as vae
-import AutoEncoder.protein_autoencoder as p_vae
+import AECompare.AutoEncoder.autoencoder as ae
+import AECompare.AutoEncoder.variational_autoencoder as vae
+import AECompare.AutoEncoder.protein_autoencoder as p_vae
 
 def train_store_latent(AE_type, epochs, latent_len, batch_size, learning_rate, random_seed):
     
@@ -43,11 +43,11 @@ def train_store_latent(AE_type, epochs, latent_len, batch_size, learning_rate, r
 
 def process_latents(AE_type, latent_len, random_seed):
     if AE_type == 'AE':
-        latent_path = 'MNIST_digits_latents/AE_latents/'
+        latent_path = 'AECompare/MNIST_digits_latents/AE_latents/'
     elif AE_type == 'VAE':
-        latent_path = 'MNIST_digits_latents/VAE_latents/'
+        latent_path = 'AECompare/MNIST_digits_latents/VAE_latents/'
     else: 
-        latent_path = 'MNIST_digits_latents/Prot_AE_latents/'
+        latent_path = 'AECompare/MNIST_digits_latents/Prot_AE_latents/'
 
     latent_df = pd.DataFrame()
     test_latent_df = pd.DataFrame()

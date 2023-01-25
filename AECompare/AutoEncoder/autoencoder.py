@@ -120,9 +120,9 @@ class AutoEncoder(nn.Module):
                 train_loader, self.optimizer)
             train_loss.append(train_epoch_loss)
             #print(f'Epoch {epoch+1}, train loss: {train_epoch_loss:.6f}')
-            self.writer.add_scalar('Loss/train', train_epoch_loss, epoch)
-        torch.save(self.state_dict(),
-         f'MNIST_digits_models/AE_models/{self.digit}_{self.latent_len}_{self.random_seed}.pth')
+            #self.writer.add_scalar('Loss/train', train_epoch_loss, epoch)
+        #torch.save(self.state_dict(),
+        # f'AECompare/MNIST_digits_models/AE_models/{self.digit}_{self.latent_len}_{self.random_seed}.pth')
 
     def evaluate(self, test_data, n=10):
         plt.figure(figsize=(14, 4))
@@ -149,10 +149,10 @@ class AutoEncoder(nn.Module):
 
         if train:
             file = open(
-                f'MNIST_digits_latents/AE_latents/{self.digit}_{self.latent_len}_{self.random_seed}_train.csv', 'w+', newline='')
+                f'AECompare/MNIST_digits_latents/AE_latents/{self.digit}_{self.latent_len}_{self.random_seed}_train.csv', 'w+', newline='')
         else:
             file = open(
-                f'MNIST_digits_latents/AE_latents/{self.digit}_{self.latent_len}_{self.random_seed}_test.csv', 'w+', newline='')
+                f'AECompare/MNIST_digits_latents/AE_latents/{self.digit}_{self.latent_len}_{self.random_seed}_test.csv', 'w+', newline='')
         with file:
             write = csv.writer(file)
             write.writerows(latent_spaces)
