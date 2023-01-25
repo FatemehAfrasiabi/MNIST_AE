@@ -79,34 +79,34 @@ class Util:
         fig.show()
         return fig
     
-@staticmethod
-def summarize_chimera_results():
-    """ Read Chimera jobs results
-    """
-    directory = 'chimera_jobs/'
-    cols = ['model', 'latent_len', 'random_seed', 'avg_accuracy']
-    AE_df = pd.DataFrame(columns=cols)
-    VAE_df = pd.DataFrame(columns=cols)
-    for f in os.listdir(directory):
-        if f.endswith(".out"): 
-            file = open(directory + f, 'r')
-            lines = file.readlines()
-            if lines[1].startswith('VAE'):
-                for i, line in enumerate(lines):
-                    if i==0 or line.startswith('end'):
-                        continue
-                    VAE_df.loc[len(VAE_df)] = line.split()
-            elif lines[1].startswith('AE'):
-                for i, line in enumerate(lines):
-                    if i==0 or line.startswith('end'):
-                        continue
-                    AE_df.loc[len(AE_df)] = line.split()
-            else:
-                continue
-    sum_vae = VAE_df[['latent_len', 'avg_accuracy']].astype(float).groupby(VAE_df.latent_len).mean()
-    sum_ae = AE_df[['latent_len', 'avg_accuracy']].astype(float).groupby(AE_df.latent_len).mean()
-    sum_vae.to_csv(directory + 'summarized_results/vae_results.csv', index=False)
-    sum_ae.to_csv(directory + 'summarized_results/ae_results.csv', index=False)
+    @staticmethod
+    def summarize_chimera_results():
+        """ Read Chimera jobs results
+        """
+        directory = 'AECompare/chimera_jobs/'
+        cols = ['model', 'latent_len', 'random_seed', 'avg_accuracy']
+        AE_df = pd.DataFrame(columns=cols)
+        VAE_df = pd.DataFrame(columns=cols)
+        for f in os.listdir(directory):
+            if f.endswith(".out"): 
+                file = open(directory + f, 'r')
+                lines = file.readlines()
+                if lines[1].startswith('VAE'):
+                    for i, line in enumerate(lines):
+                        if i==0 or line.startswith('end'):
+                            continue
+                        VAE_df.loc[len(VAE_df)] = line.split()
+                elif lines[1].startswith('AE'):
+                    for i, line in enumerate(lines):
+                        if i==0 or line.startswith('end'):
+                            continue
+                        AE_df.loc[len(AE_df)] = line.split()
+                else:
+                    continue
+        sum_vae = VAE_df[['latent_len', 'avg_accuracy']].astype(float).groupby(VAE_df.latent_len).mean()
+        sum_ae = AE_df[['latent_len', 'avg_accuracy']].astype(float).groupby(AE_df.latent_len).mean()
+        sum_vae.to_csv(directory + 'summarized_results/vae_results.csv', index=False)
+        sum_ae.to_csv(directory + 'summarized_results/ae_results.csv', index=False)
 
 if __name__=="__main__":
     
@@ -114,7 +114,8 @@ if __name__=="__main__":
     args_parser.add_argument('--function', choices=['SUM_RESULTS', 'PLOT_TSNE'], default='SUM_RESULTS')
     args = args_parser.parse_args()
 
+    util = Util()
     if args.function == 'SUM_RESULTS':
-        summarize_chimera_results()
+        util.summarize_chimera_results()
     
     
