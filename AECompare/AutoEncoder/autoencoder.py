@@ -18,7 +18,7 @@ class AutoEncoder(nn.Module):
             'cuda' if torch.cuda.is_available() else 'cpu')
         self.criterion = torch.nn.MSELoss()
         self.digit = digit
-        self.writer = SummaryWriter()
+        #self.writer = SummaryWriter()
         self.latent_len = latent_len
         self.random_seed = random_seed
         self.set_seed(random_seed)
