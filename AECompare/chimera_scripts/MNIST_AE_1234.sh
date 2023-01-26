@@ -28,7 +28,7 @@
 echo `date`
 for i in 10 12 15 16 18 20 21 22 23 24 25 26 27 28 29 30
 do
-    python train.py --latent_len $i --random_seed 303
+    python train.py --latent_len $i --random_seed 439574957
 done
 # Diagnostic/Logging Information
 echo "end time is `date`"
