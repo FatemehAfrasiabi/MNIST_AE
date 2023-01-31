@@ -103,8 +103,8 @@ class Util:
                         AE_df.loc[len(AE_df)] = line.split()
                 else:
                     continue
-        sum_vae = VAE_df[['latent_len', 'avg_accuracy']].astype(float).groupby(VAE_df.latent_len).mean()
-        sum_ae = AE_df[['latent_len', 'avg_accuracy']].astype(float).groupby(AE_df.latent_len).mean()
+        sum_vae = VAE_df[['latent_len', 'avg_accuracy']].astype(float).groupby(VAE_df.latent_len).mean().round(3)
+        sum_ae = AE_df[['latent_len', 'avg_accuracy']].astype(float).groupby(AE_df.latent_len).mean().round(3)
         sum_vae.to_csv(directory + 'summarized_results/vae_results.csv', index=False)
         sum_ae.to_csv(directory + 'summarized_results/ae_results.csv', index=False)
 
