@@ -1,7 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np 
 import pandas as pd 
-import random 
+import random
+import os
+ 
 import torch
 import torchvision
 from torchvision import transforms
@@ -10,8 +12,7 @@ from torch import nn
 import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.tensorboard import SummaryWriter
-import os
-import random
+
 
 class VariationalAutoEncoder(nn.Module):
         def __init__(self, latent_len, digit, random_seed=42):
@@ -75,7 +76,7 @@ class VariationalAutoEncoder(nn.Module):
             :param sigma: log variance from the encoder's latent space
             """
 
-            sample = mu + torch.exp(sigma) * self.N.sample(mu.shape)
+            sample = mu + torch.exp(0.5*sigma) * self.N.sample(mu.shape)
             # std = torch.exp(0.5*sigma)
             # eps = torch.randn_like(std)
             # sample =  eps.mul(std).add_(mu)
@@ -164,8 +165,8 @@ class VariationalAutoEncoder(nn.Module):
                 #print(f'Epoch {epoch+1}, train loss: {train_epoch_loss:.4f}, val loss: {val_epoch_loss:.4f}')
                 self.writer.add_scalar('Loss/train', train_epoch_loss, epoch)
                 #self.writer.add_scalar('Loss/val', val_epoch_loss, epoch)
-            torch.save(self.state_dict(),
-             f'MNIST_digits_models/VAE_models/{self.digit}_{self.latent_len}_{self.random_seed}.pth')
+            #torch.save(self.state_dict(),
+            # f'AECompare/MNIST_digits_models/VAE_models/{self.digit}_{self.latent_len}_{self.random_seed}.pth')
 
         def evaluate(self, test_data, n=10):
             plt.figure(figsize=(16,4.5))
@@ -191,9 +192,9 @@ class VariationalAutoEncoder(nn.Module):
         def store_latent(self, latent_spaces, train=False):
             import csv
             if train:
-                file = open(f'MNIST_digits_latents/VAE_latents/{self.digit}_{self.latent_len}_{self.random_seed}_train.csv', 'w+', newline='')
+                file = open(f'AECompare/MNIST_digits_latents/VAE_latents/{self.digit}_{self.latent_len}_{self.random_seed}_train.csv', 'w+', newline='')
             else:
-                file = open(f'MNIST_digits_latents/VAE_latents/{self.digit}_{self.latent_len}_{self.random_seed}_test.csv', 'w+', newline='')
+                file = open(f'AECompare/MNIST_digits_latents/VAE_latents/{self.digit}_{self.latent_len}_{self.random_seed}_test.csv', 'w+', newline='')
             with file:
                 write = csv.writer(file)
                 write.writerows(latent_spaces)
