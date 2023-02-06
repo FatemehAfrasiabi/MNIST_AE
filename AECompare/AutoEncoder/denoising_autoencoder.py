@@ -35,8 +35,8 @@ class DenoisingAutoEncoder(nn.Module):
             nn.Linear(128, latent_len),
             # latent_len,
             nn.ReLU(True),
-            )
-        
+        )
+
         self.decoder = nn.Sequential(
             nn.Linear(latent_len, 128),
             # latent_len
@@ -54,13 +54,13 @@ class DenoisingAutoEncoder(nn.Module):
             nn.ConvTranspose2d(10, 1, kernel_size=5),
             # 1 x 28 x 28
             nn.Sigmoid(),
-            )
-        
+        )
+
     def forward(self, x):
         encoded_x = self.encoder(x)
         decoded_x = self.decoder(encoded_x)
         return decoded_x, encoded_x
-    
+
     def set_seed(self) -> None:
         seed = self.random_seed
         np.random.seed(seed)

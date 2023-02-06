@@ -20,7 +20,7 @@ import AECompare.AutoEncoder.denoising_autoencoder as dae
 
 
 def train_store_latent(AE_type, epochs, latent_len, batch_size,
-    learning_rate, random_seed, verbose=0):
+                       learning_rate, random_seed, verbose=0):
     """Trains Individual AutoEncoders for each digit using the same parameters
 
     Args:
@@ -36,7 +36,7 @@ def train_store_latent(AE_type, epochs, latent_len, batch_size,
     model_dir = f'AECompare/MNIST_digits_models/{AE_type}_models'
     latent_dir = f'AECompare/MNIST_digits_latents/{AE_type}_latents'
     add_noise = False
-    
+
     for digit in range(10):
         train_data = get_sep_indx_data(digit_filter=digit, train=True)
         if AE_type == 'AE':
@@ -57,21 +57,25 @@ def train_store_latent(AE_type, epochs, latent_len, batch_size,
 
         # Train and fit the model
         fit_model(model, train_data, epochs, learning_rate, device,
-                criterion, model_dir, batch_size, verbose,
-                num_workers=8, add_noise=add_noise, validation=False)
+                  criterion, model_dir, batch_size, verbose,
+                  num_workers=8, add_noise=add_noise, validation=False)
         # model.load_state_dict(torch.load(f'{model_dir}/{digit}_{latent_len}_{random_seed}.pth'))
 
         # Store train and test latent spaces
-        train_loss, train_latent = test_model(model, train_data, device, criterion, add_noise)
+        train_loss, train_latent = test_model(
+            model, train_data, device, criterion, add_noise)
         store_latent(model, train_latent, latent_dir, train=True)
 
         test_data = get_sep_indx_data(digit_filter=digit, train=False)
-        test_loss, latent = test_model(model, test_data, device, criterion, add_noise)
+        test_loss, latent = test_model(
+            model, test_data, device, criterion, add_noise)
         store_latent(model, latent, latent_dir, train=False)
         if verbose == 1:
-            print(f"Digit {digit} train loss: {train_loss}, test loss: {test_loss}")
+            print(
+                f"Digit {digit} train loss: {train_loss}, test loss: {test_loss}")
 
     return latent_dir
+
 
 def process_latents(latent_dir, latent_len, random_seed):
 
@@ -149,7 +153,7 @@ if __name__ == "__main__":
     args_parser.add_argument('--batch_size', type=int, default=64)
     args_parser.add_argument('--learning_rate', type=float, default=0.001)
     args_parser.add_argument('--random_seed', type=int, default=42)
-    args_parser.add_argument('--verbose', choices=[0,1], default=0)
+    args_parser.add_argument('--verbose', choices=[0, 1], default=0)
     args = args_parser.parse_args()
 
     # Train the model and store the latents

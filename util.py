@@ -13,6 +13,7 @@ import os
 import argparse
 import csv
 
+
 def set_up_dataset(validation=False):
     """Download and transform the MNIST dataset
 
@@ -133,17 +134,18 @@ def summarize_chimera_results():
 
 
 def fit_model(model, train_dataset, num_epochs, lr, device, criterion,
-            model_dir, verbose, batch_size=32, num_workers=8, add_noise=False,
-            validation=False):
+              model_dir, verbose, batch_size=32, num_workers=8, add_noise=False,
+              validation=False):
     if validation:
         data_len = len(train_dataset)
         val_len = int(data_len*0.2)
-        train_dataset, val_dataset = random_split(train_dataset, [int(data_len-val_len), val_len])
+        train_dataset, val_dataset = random_split(
+            train_dataset, [int(data_len-val_len), val_len])
         val_loader = DataLoader(
             val_dataset,
             batch_size=batch_size,
             num_workers=num_workers
-            )
+        )
     train_loader = DataLoader(
         train_dataset,
         batch_size=batch_size,
@@ -156,10 +158,12 @@ def fit_model(model, train_dataset, num_epochs, lr, device, criterion,
         train_epoch_loss = train_model(
             model, train_loader, optimizer, device, criterion, add_noise)
         if validation:
-            val_epoch_loss, _ = test_model(model, val_loader, device, criterion, add_noise)
+            val_epoch_loss, _ = test_model(
+                model, val_loader, device, criterion, add_noise)
             val_loss.append(val_epoch_loss)
             if verbose:
-                print(f'Epoch {epoch+1}, train loss: {train_epoch_loss:.4f}, val loss: {val_epoch_loss:.4f}')
+                print(
+                    f'Epoch {epoch+1}, train loss: {train_epoch_loss:.4f}, val loss: {val_epoch_loss:.4f}')
         train_loss.append(train_epoch_loss)
         if verbose:
             print(f'Epoch {epoch+1}, train loss: {train_epoch_loss:.4f}')
@@ -216,14 +220,18 @@ def test_model(model, test_data, device, criterion, add_noise):
             test_loss = running_loss/len(dataloader.dataset)
     return test_loss, latent_spaces
 
+
 def store_latent(model, latent_spaces, directory, train=False):
     if train:
-        file = open(f'{directory}/{model.digit}_{model.latent_len}_{model.random_seed}_train.csv', 'w+', newline='')
+        file = open(
+            f'{directory}/{model.digit}_{model.latent_len}_{model.random_seed}_train.csv', 'w+', newline='')
     else:
-        file = open(f'{directory}/{model.digit}_{model.latent_len}_{model.random_seed}_test.csv', 'w+', newline='')
+        file = open(
+            f'{directory}/{model.digit}_{model.latent_len}_{model.random_seed}_test.csv', 'w+', newline='')
     with file:
         write = csv.writer(file)
         write.writerows(latent_spaces)
+
 
 def encode_test(model, test_dataset):
     encoded_samples = []
@@ -233,14 +241,16 @@ def encode_test(model, test_dataset):
         # Encode image
         model.eval()
         with torch.no_grad():
-            _, encoded_img  = model.forward(img)
+            _, encoded_img = model.forward(img)
         # Append to list
         encoded_img = encoded_img.flatten().cpu().numpy()
-        encoded_sample = {f"Enc. Variable {i}": enc for i, enc in enumerate(encoded_img)}
+        encoded_sample = {f"Enc. Variable {i}": enc for i,
+                          enc in enumerate(encoded_img)}
         encoded_sample['label'] = label
         encoded_samples.append(encoded_sample)
     encoded_samples = pd.DataFrame(encoded_samples)
     return encoded_samples
+
 
 if __name__ == "__main__":
 
