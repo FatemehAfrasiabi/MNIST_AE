@@ -83,9 +83,9 @@ def process_latents(latent_dir, latent_len, random_seed):
     test_latent_df = pd.DataFrame()
     for digit in range(10):
         df = pd.read_csv(
-            latent_dir + f'{digit}_{latent_len}_{random_seed}_train.csv', header=None)
+            latent_dir + f'/{digit}_{latent_len}_{random_seed}_train.csv', header=None)
         df_test = pd.read_csv(
-            latent_dir + f'{digit}_{latent_len}_{random_seed}_test.csv', header=None)
+            latent_dir + f'/{digit}_{latent_len}_{random_seed}_test.csv', header=None)
         df['target'] = int(digit)
         df_test['target'] = int(digit)
         latent_df = pd.concat([latent_df, df])
@@ -153,7 +153,7 @@ if __name__ == "__main__":
     args_parser.add_argument('--batch_size', type=int, default=64)
     args_parser.add_argument('--learning_rate', type=float, default=0.001)
     args_parser.add_argument('--random_seed', type=int, default=42)
-    args_parser.add_argument('--verbose', choices=[0, 1], default=0)
+    args_parser.add_argument('--verbose', choices=[0, 1], default=1)
     args = args_parser.parse_args()
 
     # Train the model and store the latents

@@ -167,8 +167,8 @@ def fit_model(model, train_dataset, num_epochs, lr, device, criterion,
         train_loss.append(train_epoch_loss)
         if verbose:
             print(f'Epoch {epoch+1}, train loss: {train_epoch_loss:.4f}')
-    # torch.save(model.state_dict(),
-    # f'{model_dir}/{model.digit}_{model.latent_len}_{model.random_seed}.pth')
+    torch.save(model.state_dict(),
+    f'{model_dir}/{model.digit}_{model.latent_len}_{model.random_seed}.pth')
 
 
 def train_model(model, dataloader, optimizer, device, criterion, add_noise=False):
@@ -251,6 +251,26 @@ def encode_test(model, test_dataset):
     encoded_samples = pd.DataFrame(encoded_samples)
     return encoded_samples
 
+def evaluate(model, test_data, n=10):
+    plt.figure(figsize=(14, 4))
+    for i in range(n):
+        ax = plt.subplot(2, n, 1 + i)
+        img = test_data[i][0].unsqueeze(0).to(model.device)
+        model.eval()
+        with torch.no_grad():
+            rec_img = model.forward(img)
+        plt.imshow(img.cpu().squeeze().numpy(), cmap='gist_gray')
+        ax.get_xaxis().set_visible(False)
+        ax.get_yaxis().set_visible(False)
+        if i == n//2:
+            ax.set_title('Original images')
+        ax = plt.subplot(2, n, i + 1 + n)
+        plt.imshow(rec_img.cpu().squeeze().numpy(), cmap='gist_gray')
+        ax.get_xaxis().set_visible(False)
+        ax.get_yaxis().set_visible(False)
+        if i == n//2:
+            ax.set_title('Reconstructed images')
+    plt.show()
 
 if __name__ == "__main__":
 
