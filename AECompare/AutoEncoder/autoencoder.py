@@ -68,9 +68,9 @@ class AutoEncoder(nn.Module):
         )
 
     def forward(self, x):
-        enc = self.encoder(x)
-        dec = self.decoder(enc)
-        return dec
+        encoded_x = self.encoder(x)
+        decoded_x = self.decoder(encoded_x)
+        return decoded_x, encoded_x
 
     ####################### Training the model ##########################
     def train_loop(self, dataloader, optimizer):
@@ -121,8 +121,8 @@ class AutoEncoder(nn.Module):
             train_loss.append(train_epoch_loss)
             #print(f'Epoch {epoch+1}, train loss: {train_epoch_loss:.6f}')
             #self.writer.add_scalar('Loss/train', train_epoch_loss, epoch)
-        #torch.save(self.state_dict(),
-        # f'AECompare/MNIST_digits_models/AE_models/{self.digit}_{self.latent_len}_{self.random_seed}.pth')
+        torch.save(self.state_dict(),
+         f'AECompare/MNIST_digits_models/AE_models/{self.digit}_{self.latent_len}_{self.random_seed}.pth')
 
     def evaluate(self, test_data, n=10):
         plt.figure(figsize=(14, 4))

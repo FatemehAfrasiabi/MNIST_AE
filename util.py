@@ -5,6 +5,7 @@ from torch.utils.data import DataLoader, random_split
 import torch.optim as optim
 
 from sklearn.manifold import TSNE
+import matplotlib.pyplot as plt
 import plotly.express as px
 from datetime import datetime
 import pandas as pd
@@ -132,10 +133,9 @@ def summarize_chimera_results():
         directory + 'summarized_results/vae_results.csv', index=False)
     sum_ae.to_csv(directory + 'summarized_results/ae_results.csv', index=False)
 
-
 def fit_model(model, train_dataset, num_epochs, lr, device, criterion,
               model_dir, verbose, batch_size=32, num_workers=8, add_noise=False,
-              validation=False):
+              validation=False, variational=False):
     if validation:
         data_len = len(train_dataset)
         val_len = int(data_len*0.2)
@@ -156,10 +156,10 @@ def fit_model(model, train_dataset, num_epochs, lr, device, criterion,
     val_loss = []
     for epoch in range(num_epochs):
         train_epoch_loss = train_model(
-            model, train_loader, optimizer, device, criterion, add_noise)
+            model, train_loader, optimizer, device, criterion, add_noise, variational)
         if validation:
             val_epoch_loss, _ = test_model(
-                model, val_loader, device, criterion, add_noise)
+                model, val_loader, device, criterion, add_noise, variational)
             val_loss.append(val_epoch_loss)
             if verbose:
                 print(
@@ -171,20 +171,28 @@ def fit_model(model, train_dataset, num_epochs, lr, device, criterion,
     f'{model_dir}/{model.digit}_{model.latent_len}_{model.random_seed}.pth')
 
 
-def train_model(model, dataloader, optimizer, device, criterion, add_noise=False):
+def train_model(model, dataloader, optimizer, device, criterion, add_noise=False, variational=False):
     model.train()
     running_loss = 0.0
     for data, _ in dataloader:
         if add_noise:
-            # Add random noise to the input images
+            # Add random noise to the input images, for DAE models
             data_noisy = data + 0.5 * torch.randn(*data.shape)
             data_noisy = (torch.clamp(data_noisy, 0, 1)).to(device)
             data = data.to(device)
-            recons_data, encoded_sample = model(data_noisy)
+            recons_data, _ = model(data_noisy)
+            loss = criterion(recons_data, data)
+        elif variational:
+            # For VAE models
+            data = data.to(device)
+            recons_data, mu, sigma, _ = model(data)
+            kl_loss = kl_divergence(mu, sigma)
+            loss = criterion(recons_data, data) + kl_loss
         else:
             data = data.to(device)
-            recons_data, encoded_sample = model(data)
-        loss = criterion(recons_data, data)
+            recons_data, _ = model(data)
+            loss = criterion(recons_data, data)
+        
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
@@ -193,7 +201,7 @@ def train_model(model, dataloader, optimizer, device, criterion, add_noise=False
     return train_loss
 
 
-def test_model(model, test_data, device, criterion, add_noise):
+def test_model(model, test_data, device, criterion, add_noise=False, variational=False):
     dataloader = DataLoader(
         test_data,
         batch_size=1,
@@ -205,21 +213,38 @@ def test_model(model, test_data, device, criterion, add_noise):
     with torch.no_grad():
         for data, _ in dataloader:
             if add_noise:
-                # Add random noise to the input images
+                # Add random noise to the input images, for DAE models
                 data_noisy = data + 0.5 * torch.randn(*data.shape)
                 data_noisy = (torch.clamp(data_noisy, 0, 1)).to(device)
                 data = data.to(device)
                 recons_data, encoded_sample = model(data_noisy)
+                loss = criterion(recons_data, data)
+            elif variational:
+                # For VAE models
+                data = data.to(device)
+                recons_data, mu, sigma, encoded_sample = model(data)
+                kl_loss = kl_divergence(mu, sigma)
+                loss = criterion(recons_data, data) + kl_loss
             else:
                 data = data.to(device)
                 recons_data, encoded_sample = model(data)
+                loss = criterion(recons_data, data)
+
             latent_space = encoded_sample.cpu()
             latent_spaces.append(np.array(latent_space[0]))
-            loss = criterion(recons_data, data)
             running_loss += loss.item()
             test_loss = running_loss/len(dataloader.dataset)
     return test_loss, latent_spaces
 
+def kl_divergence(mu, sigma):
+    """Compute the KL divergence between the encoder's output
+        and the standard normal distribution
+    Args:
+        mu (_type_): _description_
+        sigma (_type_): _description_
+    """
+    kl = 0.5 * (mu.pow(2) + sigma.exp() - sigma - 1).sum()
+    return kl
 
 def store_latent(model, latent_spaces, directory, train=False):
     if train:
@@ -236,7 +261,7 @@ def store_latent(model, latent_spaces, directory, train=False):
 def encode_test(model, test_dataset):
     encoded_samples = []
     for sample in test_dataset:
-        img = sample[0].unsqueeze(0).to(model.device)
+        img = sample[0].unsqueeze(0)#.to(model.device)
         label = sample[1]
         # Encode image
         model.eval()
@@ -255,17 +280,17 @@ def evaluate(model, test_data, n=10):
     plt.figure(figsize=(14, 4))
     for i in range(n):
         ax = plt.subplot(2, n, 1 + i)
-        img = test_data[i][0].unsqueeze(0).to(model.device)
+        img = test_data[i][0].unsqueeze(0)#.to(model.device)
         model.eval()
         with torch.no_grad():
-            rec_img = model.forward(img)
-        plt.imshow(img.cpu().squeeze().numpy(), cmap='gist_gray')
+            rec_img, _ = model.forward(img)
+        plt.imshow(img.squeeze().numpy(), cmap='gist_gray')
         ax.get_xaxis().set_visible(False)
         ax.get_yaxis().set_visible(False)
         if i == n//2:
             ax.set_title('Original images')
         ax = plt.subplot(2, n, i + 1 + n)
-        plt.imshow(rec_img.cpu().squeeze().numpy(), cmap='gist_gray')
+        plt.imshow(rec_img.squeeze().numpy(), cmap='gist_gray')
         ax.get_xaxis().set_visible(False)
         ax.get_yaxis().set_visible(False)
         if i == n//2:

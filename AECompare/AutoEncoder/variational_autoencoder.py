@@ -5,11 +5,8 @@ import random
 import os
  
 import torch
-import torchvision
-from torchvision import transforms
 from torch.utils.data import DataLoader,random_split
 from torch import nn
-import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.tensorboard import SummaryWriter
 
@@ -24,9 +21,6 @@ class VariationalAutoEncoder(nn.Module):
             self.latent_len = latent_len
             self.random_seed = random_seed
             self.set_seed()
-            #print("Model info:")
-            #print(
-            #    f"digit:{self.digit}, device:{self.device}, latent length:{self.latent_len}, random_seed:{self.random_seed}")
 
             self.encoder = nn.Sequential(
                 # 28 x 28
@@ -64,48 +58,30 @@ class VariationalAutoEncoder(nn.Module):
                 # 28 x 28
                 nn.Sigmoid(),
                 )
-            self.kl_loss = 0
-
-            self.N = torch.distributions.Normal(0, 1)
-            self.N.loc = self.N.loc.cuda()
-            self.N.scale = self.N.scale.cuda()
 
         def sample(self, mu, sigma):
             """
             :param mu: mean from the encoder's latent space
             :param sigma: log variance from the encoder's latent space
             """
-
-            sample = mu + torch.exp(0.5*sigma) * self.N.sample(mu.shape)
-            # std = torch.exp(0.5*sigma)
-            # eps = torch.randn_like(std)
-            # sample =  eps.mul(std).add_(mu)
-
-            return sample
+            std = torch.exp(0.5*sigma)
+            eps = torch.randn_like(std)
+            return mu + eps * std
 
         def forward(self, x):
-            x = self.encoder(x)
-            mu = self.linear1(x)
-            sigma = self.linear2(x)
-            
+            encoded_x = self.encoder(x)
+            mu = self.linear1(encoded_x)
+            sigma = self.linear2(encoded_x)
             z = self.sample(mu, sigma)
-            #print('mu shape:', mu.shape)
-            #print("sample shape:", z.shape)
-            dec = self.decoder(z)
-            return dec, mu, sigma, z
+            decoded_x = self.decoder(z)
+            return decoded_x, mu, sigma, z
 
         def loss_function(self, recon_x, x, mu, sigma):
-            #BCE = F.binary_cross_entropy(recon_x, x, reduction='sum')
-            # Correct KLD
-            #KLD = -0.5 * torch.sum(1 + sigma - mu.pow(2) - sigma.exp())
-            sigma = torch.exp(sigma)
-            KLD2 = (sigma**2 + mu**2 - torch.log(sigma) - 1/2).sum()
-            #print(f'KLD {KLD}, KLD2 {KLD2}')
 
-            loss2 = ((x - recon_x)**2).sum() + KLD2
-            #print(f'loss {BCE + KLD}, loss2 {loss2 + KLD2}')
-
-            return loss2 #BCE + KLD
+            kl = 0.5 * (mu.pow(2) + sigma.exp() - sigma - 1).sum()
+            loss = ((x - recon_x)**2).sum() + kl
+            
+            return loss
 
         ####################### Training the model ##########################
         def train_loop(self, dataloader, optimizer):
@@ -113,7 +89,7 @@ class VariationalAutoEncoder(nn.Module):
             running_loss = 0.0
             for data, _ in dataloader:
                 data = data.to(self.device)
-                reconstruction, mu, sigma, encoded_sample = self.forward(data)
+                reconstruction, mu, sigma, _ = self.forward(data)
                 loss = self.loss_function(reconstruction, data, mu, sigma)
                 optimizer.zero_grad()
                 loss.backward()

@@ -36,6 +36,7 @@ def train_store_latent(AE_type, epochs, latent_len, batch_size,
     model_dir = f'AECompare/MNIST_digits_models/{AE_type}_models'
     latent_dir = f'AECompare/MNIST_digits_latents/{AE_type}_latents'
     add_noise = False
+    variational = False
 
     for digit in range(10):
         train_data = get_sep_indx_data(digit_filter=digit, train=True)
@@ -45,6 +46,7 @@ def train_store_latent(AE_type, epochs, latent_len, batch_size,
         elif AE_type == 'VAE':
             model = vae.VariationalAutoEncoder(
                 latent_len=latent_len, digit=digit, random_seed=random_seed)
+            variational = True
         elif AE_type == 'DAE':
             model = dae.DenoisingAutoEncoder(
                 latent_len=latent_len, digit=digit, random_seed=random_seed)
@@ -54,21 +56,21 @@ def train_store_latent(AE_type, epochs, latent_len, batch_size,
                 latent_len=latent_len, digit=digit, random_seed=random_seed)
 
         model.to(device)
-
         # Train and fit the model
         fit_model(model, train_data, epochs, learning_rate, device,
-                  criterion, model_dir, batch_size, verbose,
-                  num_workers=8, add_noise=add_noise, validation=False)
+                  criterion, model_dir, verbose, batch_size,
+                  num_workers=8, add_noise=add_noise, validation=False,
+                  variational=variational)
         # model.load_state_dict(torch.load(f'{model_dir}/{digit}_{latent_len}_{random_seed}.pth'))
 
         # Store train and test latent spaces
         train_loss, train_latent = test_model(
-            model, train_data, device, criterion, add_noise)
+            model, train_data, device, criterion, add_noise, variational)
         store_latent(model, train_latent, latent_dir, train=True)
 
         test_data = get_sep_indx_data(digit_filter=digit, train=False)
         test_loss, latent = test_model(
-            model, test_data, device, criterion, add_noise)
+            model, test_data, device, criterion, add_noise, variational)
         store_latent(model, latent, latent_dir, train=False)
         if verbose == 1:
             print(
